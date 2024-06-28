@@ -28,7 +28,6 @@ Path exists: C:\Users\foobar\src\UnitySDKTest_Exported\launcher\google-services.
 
 Your exported project is configured properly.
 Please restart Android Studio through File > Invalidate Cache / Restart, then click Invalidate and Restart.
-After the Android Studio restarted, all Gradle tasks are resolved.
 
 C:\Users\foobar\src\noctuagg-unity-postexport>
 
