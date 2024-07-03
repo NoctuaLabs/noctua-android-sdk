@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 
 public interface QuickSDKInterface {
 
-    void Init(MainActivity activity);
+    void Init(MainActivity activity, String productCode);
     void onActivityResult(int requestCode, int resultCode, Intent data);
     void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults);
     void onStart();

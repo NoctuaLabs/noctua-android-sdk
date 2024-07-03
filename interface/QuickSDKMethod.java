@@ -27,12 +27,12 @@ public class QuickSDKMethod implements QuickSDKInterface {
     private String TAG = "MainActivity";
 
     @Override
-    public void Init(MainActivity activity) {
+    public void Init(MainActivity activity, String productCode) {
         _activityContent = activity;
         SampleSDKCallback sdkCallback = new SampleSDKCallback();
         sdkInstance = QuickGameManager.getInstance();
 
-        String productCode = "82061201057614433444654615653722";
+//        String productCode = "82061201057614433444654615653722";
         sdkInstance.init(_activityContent, productCode, sdkCallback);
         sdkInstance.onCreate(_activityContent);
     }
