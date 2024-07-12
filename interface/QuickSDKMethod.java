@@ -27,12 +27,12 @@ public class QuickSDKMethod implements QuickSDKInterface {
     private String TAG = "MainActivity";
 
     @Override
-    public void Init(MainActivity activity, String productCode) {
+    public void Init(MainActivity activity) {
         _activityContent = activity;
         SampleSDKCallback sdkCallback = new SampleSDKCallback();
         sdkInstance = QuickGameManager.getInstance();
 
-//        String productCode = "82061201057614433444654615653722";
+        String productCode = "your_product_code";
         sdkInstance.init(_activityContent, productCode, sdkCallback);
         sdkInstance.onCreate(_activityContent);
     }
@@ -133,7 +133,7 @@ public class QuickSDKMethod implements QuickSDKInterface {
             String adUnitId = jsonData.getString("adUnitId");
             String adPlacement = jsonData.getString("adPlacement");
 
-            AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue( AdjustConfig.AD_REVENUE_APPLOVIN_MAX);
+            AdjustAdRevenue adjustAdRevenue = new AdjustAdRevenue(AdjustConfig.AD_REVENUE_ADMOB);
             adjustAdRevenue.setRevenue(adRevenue, "USD");
             adjustAdRevenue.setAdRevenueNetwork(networkName);
             adjustAdRevenue.setAdRevenueUnit(adUnitId);
@@ -147,10 +147,7 @@ public class QuickSDKMethod implements QuickSDKInterface {
 
     @Override
     public void trackEvent(String eventName, Bundle parameters) {
-        Log.d("NOCTUADEBUG", "TrackEvent booooooo");
         if (sdkInstance != null) {
-            Log.d("NOCTUADEBUG", "sdkInstance is available");
-            Log.d("NOCTUADEBUG", "Tracking event: " + eventName);
             sdkInstance.trackEvent(eventName, parameters);
         } else {
             Log.d("NOCTUADEBUG", "sdkInstance is not available");

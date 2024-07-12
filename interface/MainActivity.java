@@ -10,23 +10,21 @@ import com.unity3d.player.UnityPlayerActivity;
 public class MainActivity extends UnityPlayerActivity {
 
     private QuickSDKInterface _sdkcom;
-    private String _productCode;
     private static MainActivity _instance;
-
-    public static void doInit(QuickSDKInterface isd, String productCode) {
-        _instance._sdkcom = isd;
-        _instance._productCode = productCode;
-        if (isd != null) {
-            isd.Init(_instance, productCode);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         _instance = this;
         super.onCreate(savedInstanceState);
 
-        doInit(new QuickSDKMethod(), _productCode);
+        doInit(new QuickSDKMethod());
+    }
+
+    public static void doInit(QuickSDKInterface isd) {
+        _instance._sdkcom = isd;
+        if (isd != null) {
+            isd.Init(_instance);
+        }
     }
 
     public static void doSilentLogin() {
